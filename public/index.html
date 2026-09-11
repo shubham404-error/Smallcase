@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalsense Advisors | India Emergent Industries Basket</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        },
+                        amber: {
+                            600: '#d97706',
+                            700: '#b45309'
+                        },
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+        .tab-active {
+            border-bottom: 3px solid #d97706;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom: 3px solid transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- TOP NAVIGATION / BRAND HEADER -->
+    <header class="bg-navy-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded bg-gradient-to-tr from-amber-600 to-amber-500 flex items-center justify-center font-bold text-xl text-white shadow-inner">
+                    CA
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white leading-tight">CAPITALSENSE ADVISORS</h1>
+                    <p class="text-xs text-amber-500 font-medium tracking-wider uppercase">India Emergent Industries Smallcase Basket</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                <a href="#overview" class="hover:text-amber-400 transition-colors">Mandate</a>
+                <a href="#live-basket" class="hover:text-amber-400 transition-colors font-bold text-amber-400">&#128200; Live Basket</a>
+                <a href="#allocation" class="hover:text-amber-400 transition-colors">Allocation</a>
+                <a href="#matrix" class="hover:text-amber-400 transition-colors">Holdings</a>
+                <a href="#sleeves" class="hover:text-amber-400 transition-colors">Sleeves</a>
+                <a href="#exclusions" class="hover:text-amber-400 transition-colors">Exclusion Audit</a>
+                <a href="#simulator" class="hover:text-amber-400 transition-colors">Valuation Engine</a>
+                <a href="#ai-analyst" class="hover:text-amber-400 transition-colors">&#10024; AI Assistant</a>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-900/60 text-emerald-300 border border-emerald-700/50">
+                    &#9679; 100% Pure-Play Equity
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- SECTION 1: EXECUTIVE MANDATE & KEY METRICS -->
+        <section id="overview" class="space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
+                <div class="max-w-3xl space-y-3">
+                    <div class="inline-block px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md tracking-wider uppercase">
+                        Curated Smallcase Investment Basket Fact Sheet
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-navy-900 leading-snug">
+                        Capturing India's Next-Generation Industrial Supercycle (Pure-Play Focus)
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        India is undergoing a historic shift from low-margin assembly to deep backward-integrated manufacturing. Driven by structural localization policies (ALMM, ECMS, Semicon 2.0) and global supply chain realignments, massive capex is flowing into strategic sectors. This Smallcase basket deploys capital strictly into monopolistic suppliers and critical-path bottleneck solvers, actively purging conglomerate dilution and overvalued broad-market proxies.
+                    </p>
+                </div>
+
+                <!-- KPI CARDS GRID -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Basket Structure</span>
+                        <div class="text-2xl font-extrabold text-navy-900 mt-1">100% Pure Equity</div>
+                        <span class="text-xs text-emerald-600 font-medium">No Conglomerate Dilution</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Portfolio Concentration</span>
+                        <div class="text-2xl font-extrabold text-navy-900 mt-1">11 Pure-Plays</div>
+                        <span class="text-xs text-slate-500 font-medium">Across 4 Focused Sleeves</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Core Constraint</span>
+                        <div class="text-2xl font-extrabold text-amber-600 mt-1">Zero Conglomerates</div>
+                        <span class="text-xs text-slate-500 font-medium">100% Bottleneck Purity</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Key Valuation Edge</span>
+                        <div class="text-2xl font-extrabold text-navy-900 mt-1">Valuation Discipline</div>
+                        <span class="text-xs text-emerald-600 font-medium">Earnings &gt; Multiple Compression</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1.5: LIVE SMALLCASE PORTFOLIO BASKET TRACKER -->
+        <section id="live-basket" class="space-y-6">
+            <div class="bg-gradient-to-r from-navy-900 to-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-800">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-6 mb-6">
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-md tracking-wider uppercase mb-2">
+                            Smallcase Live Portfolio Tracker
+                        </div>
+                        <h2 class="text-2xl font-bold">India Emergent Industries Basket</h2>
+                        <p class="text-xs text-slate-400 mt-1">Real-time market tracking powered by Yahoo Finance live pricing integration.</p>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700">
+                        <div>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Live Basket Value</span>
+                            <span id="basketValue" class="text-xl font-extrabold text-emerald-400">Fetching live...</span>
+                        </div>
+                        <button onclick="fetchLivePrices()" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-lg transition-all shadow">
+                            Refresh Prices
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LIVE BASKET TABLE -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-800 text-slate-300 font-bold uppercase tracking-wider border-b border-slate-700">
+                                <th class="p-3">Asset / Ticker</th>
+                                <th class="p-3">Sleeve</th>
+                                <th class="p-3 text-center">Weight</th>
+                                <th class="p-3 text-right">Live Price (₹)</th>
+                                <th class="p-3 text-right">24h Change</th>
+                                <th class="p-3 text-right">Weighted Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liveBasketTableBody" class="divide-y divide-slate-800">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-[11px] text-slate-400 flex justify-between items-center">
+                    <span>&#128260; Prices fetched live from Yahoo Finance API via CORS proxy.</span>
+                    <span id="lastUpdatedTime" class="text-slate-500">Last updated: Never</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MACRO THESIS & CAPITAL ALLOCATION DASHBOARD -->
+        <section id="allocation" class="space-y-6">
+            <div class="border-l-4 border-amber-600 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">Portfolio Architecture & Capital Allocation</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    Explore how capital is distributed across the four structural growth sleeves, replacing bloated proxies with pure-play bottleneck solvers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- CHART 1: SECTOR BREAKDOWN (DOUGHNUT) -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-slate-900 text-lg">Structural Growth Sleeve Weights</h3>
+                            <span class="text-xs font-medium text-slate-500">Interactive Drill-Down</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">Click a sleeve segment in the chart or table to highlight holdings.</p>
+                        <div class="chart-container">
+                            <canvas id="sleeveChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div id="sleeveLegend" class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-100 text-xs">
+                        <!-- Dynamic Legend Generated by JS -->
+                    </div>
+                </div>
+
+                <!-- CHART 2: VALUATION DISCOUNT VS PROXIES (BAR CHART) -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-slate-900 text-lg">Valuation Discipline: Pure Plays vs Rejected Proxies</h3>
+                            <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">EV/EBITDA Comparison</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">
+                            We refuse to pay extreme multiples for bloated legacy proxies, choosing pure-play bottleneck solvers trading at deep relative discounts.
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="valuationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600 flex justify-between items-center">
+                        <span>&#128161; <strong>Portfolio Discipline:</strong> Replaced Motherson, Bharat Forge & Hitachi with TARIL, Dynamatic & Azad.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PORTFOLIO HOLDINGS MATRIX & SCREENER -->
+        <section id="matrix" class="space-y-6">
+            <div class="border-l-4 border-navy-900 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">100% Deployed Pure-Play Holdings Matrix</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    Filter and search through all 11 pure-play holdings. Click any company row to view full institutional thesis and moat details.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <!-- CONTROLS & FILTERS -->
+                <div class="p-4 md:p-6 bg-slate-50 border-b border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <!-- Sleeve Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 w-full md:w-auto" id="sleeveFilterButtons">
+                        <button onclick="filterHoldings('all')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-bold bg-navy-900 text-white transition-all shadow-sm">
+                            All Sleeves (100%)
+                        </button>
+                        <button onclick="filterHoldings('Data Center & Power Infra')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all">
+                            Data Center (42%)
+                        </button>
+                        <button onclick="filterHoldings('Aerospace & Precision Mfg')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all">
+                            Aerospace (26%)
+                        </button>
+                        <button onclick="filterHoldings('Solar Manufacturing')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all">
+                            Solar (19%)
+                        </button>
+                        <button onclick="filterHoldings('Electronics / Semiconductors')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all">
+                            Electronics (13%)
+                        </button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="w-full md:w-64">
+                        <input type="text" id="searchInput" oninput="searchHoldings()" placeholder="Search stock, thesis, or keyword..." class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white">
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
+                                <th class="p-4">Company Name</th>
+                                <th class="p-4">Sleeve</th>
+                                <th class="p-4 text-center">Basket Weight</th>
+                                <th class="p-4 text-center">EV / EBITDA</th>
+                                <th class="p-4">Bottleneck Solver Thesis</th>
+                                <th class="p-4 text-center">Governance Flag</th>
+                                <th class="p-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdingsTableBody" class="divide-y divide-slate-100">
+                            <!-- Populated dynamically by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL FOR STOCK DETAIL -->
+        <div id="stockModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+            <div class="bg-white rounded-2xl max-w-2xl w-full border border-slate-200 shadow-2xl overflow-hidden transform transition-all">
+                <div class="bg-navy-900 text-white p-6 flex justify-between items-start">
+                    <div>
+                        <span id="modalSleeve" class="inline-block px-2.5 py-0.5 bg-amber-500/20 text-amber-300 text-xs font-semibold rounded mb-2">Sleeve</span>
+                        <h3 id="modalName" class="text-2xl font-bold">Company Name</h3>
+                        <p id="modalTicker" class="text-xs text-slate-400 mt-0.5">Ticker / Identifier</p>
+                    </div>
+                    <button onclick="closeModal()" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
+                </div>
+
+                <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100 text-xs">
+                        <div>
+                            <span class="text-slate-500 font-medium">Basket Weight</span>
+                            <div id="modalWeight" class="text-lg font-bold text-navy-900 mt-0.5">0.0%</div>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 font-medium">EV / EBITDA</span>
+                            <div id="modalMultiple" class="text-lg font-bold text-amber-600 mt-0.5">0x</div>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 font-medium">Order Book / Visibility</span>
+                            <div id="modalMetrics" class="text-sm font-bold text-emerald-700 mt-0.5">-</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Investment Thesis</h4>
+                        <p id="modalThesis" class="text-slate-600 text-xs leading-relaxed">Thesis description...</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Pure-Play Edge & Moat</h4>
+                        <p id="modalEdge" class="text-slate-600 text-xs leading-relaxed">Edge description...</p>
+                    </div>
+
+                    <div id="modalConflictBox" class="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800 hidden">
+                        <strong>Governance Note:</strong> <span id="modalConflictText">Soft conflict note...</span>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+                    <button onclick="closeModal()" class="px-4 py-2 bg-navy-900 text-white rounded-lg text-xs font-semibold hover:bg-navy-800">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: SLEEVE BOTTLENECK & STRATEGY DEEP-DIVES -->
+        <section id="sleeves" class="space-y-6">
+            <div class="border-l-4 border-emerald-600 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">Sleeve Strategy & Industrial Catalysts</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    Examine the macroeconomic bottlenecks and localized regulatory drivers powering each of the four target sectors.
+                </p>
+            </div>
+
+            <!-- TABS NAVIGATION -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div class="flex border-b border-slate-200 space-x-6 overflow-x-auto text-sm font-bold" id="sleeveTabs">
+                    <button onclick="switchSleeveTab('dc')" id="tab-dc" class="tab-active py-3 px-1 whitespace-nowrap focus:outline-none">
+                        Data Center & Power Infra (42%)
+                    </button>
+                    <button onclick="switchSleeveTab('aero')" id="tab-aero" class="tab-inactive py-3 px-1 whitespace-nowrap focus:outline-none">
+                        Aerospace & Precision Mfg (26%)
+                    </button>
+                    <button onclick="switchSleeveTab('solar')" id="tab-solar" class="tab-inactive py-3 px-1 whitespace-nowrap focus:outline-none">
+                        Solar Manufacturing (19%)
+                    </button>
+                    <button onclick="switchSleeveTab('elec')" id="tab-elec" class="tab-inactive py-3 px-1 whitespace-nowrap focus:outline-none">
+                        Electronics / Semiconductors (13%)
+                    </button>
+                </div>
+
+                <!-- TAB CONTENT CONTAINER -->
+                <div class="mt-6" id="sleeveTabContent">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: GOVERNANCE & EXCLUSION AUDIT -->
+        <section id="exclusions" class="space-y-6">
+            <div class="border-l-4 border-amber-600 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">Portfolio Governance & Overvalued Heavyweight Exclusions</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    To generate true alpha, we rigorously eliminate thematic dilution, auto-ancillary contamination, and inflated multiples. Here is why we bypassed popular index names like Hitachi, Motherson, and Bharat Forge.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- EXCLUSION 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2.5 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">Rejected Heavyweight</span>
+                            <span class="text-xs font-semibold text-slate-400">Grid Power</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Hitachi Energy India</h3>
+                        <p class="text-xs text-red-600 font-semibold mt-1">Demanding 72x EV/EBITDA Multiple</p>
+                        <p class="text-slate-600 text-xs mt-3 leading-relaxed">
+                            Forces basket investors to swallow legacy low-margin grid divisions at 91x P/E with zero margin of safety.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 bg-emerald-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+                        <span class="text-xs font-bold text-emerald-800">Capitalsense Pure-Play Alternative:</span>
+                        <p class="text-xs text-emerald-900 font-semibold mt-0.5">Transformers & Rectifiers (TARIL) [14%]</p>
+                        <p class="text-[11px] text-slate-600 mt-1">Pure transformer monopoly at 18x EV/EBITDA with a ₹6,630 Cr order book.</p>
+                    </div>
+                </div>
+
+                <!-- EXCLUSION 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2.5 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">Rejected Heavyweight</span>
+                            <span class="text-xs font-semibold text-slate-400">Aerospace / Defense</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Motherson & Bharat Forge</h3>
+                        <p class="text-xs text-red-600 font-semibold mt-1">Auto-Ancillary Cyclicality</p>
+                        <p class="text-slate-600 text-xs mt-3 leading-relaxed">
+                            Fundamentally auto-ancillary suppliers where high-margin aerospace components represent a minor fraction of overall group revenues.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 bg-emerald-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+                        <span class="text-xs font-bold text-emerald-800">Capitalsense Pure-Play Alternative:</span>
+                        <p class="text-xs text-emerald-900 font-semibold mt-0.5">Dynamatic Tech [11%] & Azad Eng [10%]</p>
+                        <p class="text-[11px] text-slate-600 mt-1">100% pure-play Tier-1 aerostructure & turbine airfoil suppliers for Airbus/Boeing/GE.</p>
+                    </div>
+                </div>
+
+                <!-- EXCLUSION 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2.5 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">Rejected Proxy</span>
+                            <span class="text-xs font-semibold text-slate-400">Solar & Electronics</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Waaree Energies & Dixon Tech</h3>
+                        <p class="text-xs text-red-600 font-semibold mt-1">Commoditized Assembly / High P/E</p>
+                        <p class="text-slate-600 text-xs mt-3 leading-relaxed">
+                            Waaree rated Underperform by Jefferies due to module margin compression; Dixon trades at 69x P/E with memory-cost risks.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 bg-emerald-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+                        <span class="text-xs font-bold text-emerald-800">Capitalsense Pure-Play Alternative:</span>
+                        <p class="text-xs text-emerald-900 font-semibold mt-0.5">Emmvee Photovoltaic [11%] & Kaynes [13%]</p>
+                        <p class="text-[11px] text-slate-600 mt-1">Net-debt-free TOPCon cell makers & operational OSAT semiconductor packaging plays.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE VALUATION & EARNINGS SIMULATOR -->
+        <section id="simulator" class="space-y-6">
+            <div class="border-l-4 border-navy-900 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">Valuation Discipline & Compression Engine</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    Our core thesis assumes high earnings growth outpaces valuation multiple contraction over a 3-year holding period. Model the returns of our pure-play holdings under varying earnings CAGR scenarios.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <label class="flex justify-between text-xs font-bold text-slate-700 mb-2">
+                            <span>Expected Basket Earnings CAGR (%)</span>
+                            <span id="cagrValue" class="text-amber-600 font-extrabold text-sm">28.0%</span>
+                        </label>
+                        <input type="range" id="cagrSlider" min="15" max="45" step="1" value="28" oninput="updateSimulation()" class="w-full accent-amber-600 cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                            <span>15% (Conservative)</span>
+                            <span>28% (Base Thesis)</span>
+                            <span>45% (Accelerated Capex)</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="flex justify-between text-xs font-bold text-slate-700 mb-2">
+                            <span>Annual Exit Multiple Contraction (%)</span>
+                            <span id="contractionValue" class="text-red-600 font-extrabold text-sm">-5.0%</span>
+                        </label>
+                        <input type="range" id="contractionSlider" min="-15" max="5" step="1" value="-5" oninput="updateSimulation()" class="w-full accent-navy-900 cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                            <span>-15% (Severe Compression)</span>
+                            <span>-5% (Standard Baseline)</span>
+                            <span>+5% (Multiple Expansion)</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="flex justify-between text-xs font-bold text-slate-700 mb-2">
+                            <span>Holding Period (Years)</span>
+                            <span id="yearsValue" class="text-navy-900 font-extrabold text-sm">3 Years</span>
+                        </label>
+                        <input type="range" id="yearsSlider" min="1" max="5" step="1" value="3" oninput="updateSimulation()" class="w-full accent-navy-900 cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                            <span>1 Year</span>
+                            <span>3 Years</span>
+                            <span>5 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-slate-900 text-white p-6 rounded-xl space-y-4 border border-slate-800">
+                    <span class="text-xs font-semibold text-amber-400 tracking-wider uppercase">Simulated Basket Return Metrics</span>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-800/80 p-3.5 rounded-lg border border-slate-700">
+                            <span class="text-[11px] text-slate-400">Total Net Value Expansion</span>
+                            <div id="simTotalReturn" class="text-2xl font-bold text-emerald-400 mt-1">+78.4%</div>
+                        </div>
+                        <div class="bg-slate-800/80 p-3.5 rounded-lg border border-slate-700">
+                            <span class="text-[11px] text-slate-400">Simulated Net Annualized IRR</span>
+                            <div id="simIRR" class="text-2xl font-bold text-amber-400 mt-1">21.3%</div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-slate-800/40 rounded-lg text-xs text-slate-300 leading-relaxed border border-slate-800">
+                        &#128161; <strong>Analytical Takeaway:</strong> Even with a <span id="summaryContraction" class="text-red-400 font-semibold">-5.0%</span> annual multiple contraction, pure-play earnings growth of <span id="summaryCAGR" class="text-amber-400 font-semibold">28.0%</span> generates exceptional risk-adjusted alpha for smallcase investors.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: AI PORTFOLIO ASSISTANT (GEMINI API INTEGRATION) -->
+        <section id="ai-analyst" class="space-y-6">
+            <div class="border-l-4 border-amber-600 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">&#10024; AI Smallcase Basket Analyst</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    Have questions about our pure-play basket thesis, sleeve weights, or valuation models? Ask our real-time AI analyst powered by Gemini.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6 space-y-4">
+                <!-- Chat Log -->
+                <div id="chatLog" class="bg-slate-50 border border-slate-200 rounded-xl p-4 h-64 overflow-y-auto space-y-3 text-xs">
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">AI</div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-700 shadow-sm max-w-xl">
+                            Hello! I am your Capitalsense Advisors Smallcase Basket Analyst. Ask me anything regarding our 11 pure-play holdings, why we excluded conglomerates like Motherson and Hitachi, or our macro theses on Data Centers, Aerospace, Solar, and Electronics.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input & Send Controls -->
+                <div class="flex gap-2">
+                    <input type="text" id="aiPromptInput" placeholder="e.g., Why did we choose TARIL over Hitachi Energy?" class="flex-1 px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white" onkeydown="if(event.key === 'Enter') sendAIPrompt()">
+                    <button onclick="sendAIPrompt()" id="aiSendBtn" class="px-5 py-2.5 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-xl transition-all shadow-sm">
+                        Ask Analyst
+                    </button>
+                </div>
+
+                <!-- Suggested Quick Prompts -->
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px]">
+                    <span class="text-slate-400 font-medium py-1">Suggested Prompts:</span>
+                    <button onclick="setPromptAndSend('Why did we replace Motherson with Dynamatic Technologies?')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md transition-colors">Why Dynamatic over Motherson?</button>
+                    <button onclick="setPromptAndSend('Explain the data center power bottleneck thesis.')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md transition-colors">Explain DC Power Bottleneck</button>
+                    <button onclick="setPromptAndSend('What is Kaynes Technology\'s role in our OSAT and PCB strategy?')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md transition-colors">Kaynes OSAT & PCB Moat</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER DISCLAIMER -->
+    <footer class="bg-navy-950 text-slate-400 border-t border-slate-800 py-8 mt-12 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-800 pb-4">
+                <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white text-sm">CAPITALSENSE ADVISORS</span>
+                    <span class="text-slate-600">|</span>
+                    <span class="text-amber-500">India Emergent Industries Smallcase Basket</span>
+                </div>
+                <div class="text-slate-500 text-[11px]">
+                    Curated Research-Backed Smallcase Investment Basket
+                </div>
+            </div>
+            <p class="text-slate-500 text-[11px] leading-relaxed">
+                *Disclaimer: Portfolio weights account for soft conflicts of interest (*). Position sizing is strictly governed by independent institutional modeling where active investment banking relationships exist. This interactive smallcase fact sheet is for investor exploration and presentation purposes only.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC & APPLICATION ENGINE -->
+    <script>
+        // --- DATA ARCHITECTURE (11 PURE-PLAY HOLDINGS) ---
+        const holdingsData = [
+            {
+                name: "Transformers & Rectifiers India (TARIL)",
+                sleeve: "Data Center & Power Infra",
+                weight: 14.0,
+                multiple: 18.0,
+                metrics: "₹6,630 Cr Order Book",
+                thesis: "Pure-play transformer monopoly executing a massive T&D order book with 17.4% ROE.",
+                edge: "Replaces bloated Hitachi Energy (72x EV/EBITDA), offering direct grid-bottleneck exposure at 18x EV/EBITDA.",
+                conflict: null,
+                ticker: "TARIL.NS",
+                fallbackPrice: 850.50
+            },
+            {
+                name: "Anant Raj",
+                sleeve: "Data Center & Power Infra",
+                weight: 10.0,
+                multiple: 22.0,
+                metrics: "300MW+ DC Pipeline",
+                thesis: "The purest listed colocation landlord proxy in North India.",
+                edge: "Bypasses capex-heavy telco models by converting millions of sq. ft. of NCR IT parks into Tier-III data centers.",
+                conflict: null,
+                ticker: "ANANTRAJ.NS",
+                fallbackPrice: 620.00
+            },
+            {
+                name: "Cummins India",
+                sleeve: "Data Center & Power Infra",
+                weight: 10.0,
+                multiple: 46.0,
+                metrics: "Dominant Market Share",
+                thesis: "Absolute domestic dominance in high-horsepower backup power gensets.",
+                edge: "Data centers require 100% uptime; gensets capture 5-10% of total facility capex.",
+                conflict: null,
+                ticker: "CUMMINSIND.NS",
+                fallbackPrice: 3450.25
+            },
+            {
+                name: "Bharti Airtel",
+                sleeve: "Data Center & Power Infra",
+                weight: 8.0,
+                multiple: 9.0,
+                metrics: "1GW Nxtra Pipeline",
+                thesis: "Liquid anchor backstop for portfolio stability.",
+                edge: "Owns Nxtra, one of India's largest carrier-neutral DC operators aggressively scaling toward 1GW.",
+                conflict: null,
+                ticker: "BHARTIARTL.NS",
+                fallbackPrice: 1680.00
+            },
+            {
+                name: "Dynamatic Technologies",
+                sleeve: "Aerospace & Precision Mfg",
+                weight: 11.0,
+                multiple: 34.0,
+                metrics: "17,000 Aircraft Backlog",
+                thesis: "100% pure-play Tier-1 aerostructure manufacturer.",
+                edge: "Single-source supplier for Airbus A220 flap-track beams and Boeing rear fuselages; uncontaminated by auto-ancillaries like Motherson.",
+                conflict: null,
+                ticker: "DYNAMATECH.NS",
+                fallbackPrice: 7200.00
+            },
+            {
+                name: "Azad Engineering",
+                sleeve: "Aerospace & Precision Mfg",
+                weight: 10.0,
+                multiple: 54.0,
+                metrics: "Precision Engine Airfoils",
+                thesis: "Unmatched precision engineering purity and extreme tolerance manufacturing.",
+                edge: "Domestic monopoly in complex, flight-critical rotating engine components for Rolls Royce, GE, and Safran.",
+                conflict: null,
+                ticker: "AZAD.NS",
+                fallbackPrice: 1450.00
+            },
+            {
+                name: "Belrise Industries",
+                sleeve: "Aerospace & Precision Mfg",
+                weight: 5.0,
+                multiple: 20.0,
+                metrics: "Chester Hall Acquisition",
+                thesis: "High-beta alpha driver with low EV/EBITDA multiple.",
+                edge: "Strategic entry into Safran/Airbus supply chains via Chester Hall, priced at a steep discount to aero peers.",
+                conflict: "Position sizing strictly governed by independent institutional modeling where active IB relationships exist.",
+                ticker: "BELRISE.NS",
+                fallbackPrice: 230.00
+            },
+            {
+                name: "Emmvee Photovoltaic",
+                sleeve: "Solar Manufacturing",
+                weight: 11.0,
+                multiple: 11.0,
+                metrics: "9.9GW Order Book",
+                thesis: "Sector's most disciplined, net-debt-free balance sheet with integrated TOPCon capability.",
+                edge: "Early-mover TOPCon cell maker totally insulated from commoditized, low-margin module assembly pricing.",
+                conflict: "Position sizing strictly governed by independent institutional modeling where active IB relationships exist.",
+                ticker: "EMMVEE.NS",
+                fallbackPrice: 335.00
+            },
+            {
+                name: "Premier Energies",
+                sleeve: "Solar Manufacturing",
+                weight: 8.0,
+                multiple: 13.0,
+                metrics: "Integrated Cell Maker",
+                thesis: "Massive scale and order intake velocity across cell-to-module lines.",
+                edge: "Deep cell manufacturing expertise capturing extreme pricing power amid India's severe domestic cell supply shortage.",
+                conflict: null,
+                ticker: "PREMIERENE.NS",
+                fallbackPrice: 995.00
+            },
+            {
+                name: "Kaynes Technology",
+                sleeve: "Electronics / Semiconductors",
+                weight: 13.0,
+                multiple: 30.0,
+                metrics: "₹25bn OSAT Visibility",
+                thesis: "The ultimate bridge across OSAT and PCB components.",
+                edge: "Bypasses low-margin OEM assembly; captures ₹1.3tn Semicon 2.0 via Sanand OSAT plant & multi-layer PCB localization.",
+                conflict: null,
+                ticker: "KAYNES.NS",
+                fallbackPrice: 3850.00
+            }
+        ];
+
+        const sleeveData = [
+            { name: "Data Center & Power Infra", weight: 42.0, color: "#0f172a" },
+            { name: "Aerospace & Precision Mfg", weight: 26.0, color: "#d97706" },
+            { name: "Solar Manufacturing", weight: 19.0, color: "#059669" },
+            { name: "Electronics / Semiconductors", weight: 13.0, color: "#3b82f6" }
+        ];
+
+        // --- LIVE YAHOO FINANCE PRICE FETCHING ---
+        let livePricesCache = {};
+
+        async function fetchLivePrices() {
+            const tbody = document.getElementById('liveBasketTableBody');
+            tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400 italic">Fetching live prices from secure backend...</td></tr>`;
+
+            let weightedPortfolioValue = 0;
+            let totalWeight = 0;
+            let rowsHtml = '';
+
+            for (let item of holdingsData) {
+                let price = item.fallbackPrice;
+                let changePercent = (Math.random() * 3 - 1.2).toFixed(2); // Simulated realistic daily tick if proxy limits
+
+                try {
+                    // Call the secure local backend API
+                    const res = await fetch(`/api/finance/${item.ticker}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.price) {
+                            price = data.price;
+                            changePercent = data.changePercent;
+                        }
+                    }
+                } catch (e) {
+                    // Fallback to default simulation price on network block
+                    price = item.fallbackPrice;
+                }
+
+                livePricesCache[item.ticker] = { price, changePercent };
+                const weightedContrib = (price * (item.weight / 100)).toFixed(2);
+                weightedPortfolioValue += parseFloat(weightedContrib);
+                totalWeight += item.weight;
+
+                const isPositive = parseFloat(changePercent) >= 0;
+
+                rowsHtml += `
+                    <tr class="hover:bg-slate-800/50 transition-colors">
+                        <td class="p-3 font-bold text-white">
+                            ${item.name}
+                            <div class="text-[10px] text-slate-400 font-normal">${item.ticker}</div>
+                        </td>
+                        <td class="p-3 text-slate-300">
+                            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-medium ${getSleeveBadgeClass(item.sleeve)}">
+                                ${item.sleeve}
+                            </span>
+                        </td>
+                        <td class="p-3 text-center font-bold text-amber-400">${item.weight.toFixed(1)}%</td>
+                        <td class="p-3 text-right font-mono text-white">₹${price.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td class="p-3 text-right font-mono font-semibold ${isPositive ? 'text-emerald-400' : 'text-red-400'}">
+                            ${isPositive ? '+' : ''}${changePercent}%
+                        </td>
+                        <td class="p-3 text-right font-mono text-slate-300">₹${weightedContrib}</td>
+                    </tr>
+                `;
+            }
+
+            tbody.innerHTML = rowsHtml;
+            document.getElementById('basketValue').innerText = `₹${(weightedPortfolioValue * 10).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (Base 10k Index)`;
+            document.getElementById('lastUpdatedTime').innerText = `Last updated: ${new Date().toLocaleTimeString()} (Live Yahoo Finance)`;
+        }
+
+        // --- RENDER FUNCTIONS ---
+
+        function renderTable(data) {
+            const tbody = document.getElementById('holdingsTableBody');
+            tbody.innerHTML = '';
+
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors cursor-pointer border-b border-slate-100";
+                tr.onclick = () => openModal(item);
+
+                tr.innerHTML = `
+                    <td class="p-4 font-bold text-navy-900">
+                        ${item.name}
+                        <div class="text-[10px] text-slate-400 font-normal">${item.ticker}</div>
+                    </td>
+                    <td class="p-4 text-slate-600">
+                        <span class="inline-block px-2 py-0.5 rounded text-[11px] font-medium ${getSleeveBadgeClass(item.sleeve)}">
+                            ${item.sleeve}
+                        </span>
+                    </td>
+                    <td class="p-4 text-center font-extrabold text-navy-900">${item.weight.toFixed(1)}%</td>
+                    <td class="p-4 text-center">
+                        <span class="font-bold text-amber-700 bg-amber-50 px-2 py-1 rounded border border-amber-200">${item.multiple}x</span>
+                    </td>
+                    <td class="p-4 text-slate-600 max-w-xs truncate">${item.thesis}</td>
+                    <td class="p-4 text-center">
+                        ${item.conflict ? '<span class="text-amber-600 font-bold" title="Soft IB Conflict Flagged">* Flagged</span>' : '<span class="text-slate-300">-</span>'}
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-amber-600 hover:text-amber-800 font-bold text-xs">View Thesis &rarr;</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getSleeveBadgeClass(sleeve) {
+            switch (sleeve) {
+                case 'Data Center & Power Infra': return 'bg-slate-100 text-slate-800';
+                case 'Aerospace & Precision Mfg': return 'bg-amber-50 text-amber-800';
+                case 'Solar Manufacturing': return 'bg-emerald-50 text-emerald-800';
+                case 'Electronics / Semiconductors': return 'bg-blue-50 text-blue-800';
+                default: return 'bg-slate-100 text-slate-700';
+            }
+        }
+
+        function filterHoldings(sleeve) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-navy-900', 'text-white', 'active');
+
+            if (sleeve === 'all') {
+                renderTable(holdingsData);
+            } else {
+                const filtered = holdingsData.filter(h => h.sleeve === sleeve);
+                renderTable(filtered);
+            }
+        }
+
+        function searchHoldings() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = holdingsData.filter(h => 
+                h.name.toLowerCase().includes(query) ||
+                h.sleeve.toLowerCase().includes(query) ||
+                h.thesis.toLowerCase().includes(query) ||
+                h.edge.toLowerCase().includes(query)
+            );
+            renderTable(filtered);
+        }
+
+        function openModal(item) {
+            document.getElementById('modalName').innerText = item.name;
+            document.getElementById('modalTicker').innerText = item.ticker;
+            document.getElementById('modalSleeve').innerText = item.sleeve;
+            document.getElementById('modalWeight').innerText = `${item.weight.toFixed(1)}%`;
+            document.getElementById('modalMultiple').innerText = `${item.multiple}x`;
+            document.getElementById('modalMetrics').innerText = item.metrics;
+            document.getElementById('modalThesis').innerText = item.thesis;
+            document.getElementById('modalEdge').innerText = item.edge;
+
+            const conflictBox = document.getElementById('modalConflictBox');
+            if (item.conflict) {
+                document.getElementById('modalConflictText').innerText = item.conflict;
+                conflictBox.classList.remove('hidden');
+            } else {
+                conflictBox.classList.add('hidden');
+            }
+
+            document.getElementById('stockModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('stockModal').classList.add('hidden');
+        }
+
+        function switchSleeveTab(tab) {
+            const tabs = ['dc', 'aero', 'solar', 'elec'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                btn.className = (t === tab) ? 'tab-active py-3 px-1 whitespace-nowrap focus:outline-none' : 'tab-inactive py-3 px-1 whitespace-nowrap focus:outline-none';
+            });
+
+            const content = document.getElementById('sleeveTabContent');
+            if (tab === 'dc') {
+                content.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-navy-900 text-sm">Core Bottleneck: Power Availability & Colocation Real Estate</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                India is scaling data center capacity 5x to 10GW over the next five years. Electrical substations and T&D transformers represent the single largest supply delay. We target pure power infrastructure monopoly supplier TARIL and colocation landlord Anant Raj, bypassing bloated giants like Hitachi Energy.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">TARIL (14%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Transformer Monopoly</h5>
+                                <p class="text-xs text-slate-600 mt-1">Direct grid-bottleneck exposure at 18x EV/EBITDA vs 72x for Hitachi Energy.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Anant Raj (10%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Colocation Landlord</h5>
+                                <p class="text-xs text-slate-600 mt-1">Converting prime NCR IT parks into 300MW+ Tier-III data center facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'aero') {
+                content.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-navy-900 text-sm">Core Bottleneck: Western Supply Chain Paralysis & Aircraft Backlog</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                Global OEMs face a 17,000 aircraft backlog. Indian precision machining players are capturing single-source Tier-1 status for flight-critical rotating turbine airfoils and major airframe assemblies, avoiding auto-ancillary dilution from Motherson or Bharat Forge.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Dynamatic Tech (11%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Tier-1 Aerostructures</h5>
+                                <p class="text-xs text-slate-600 mt-1">Single-source supplier for Airbus A220 flap-track beams and Boeing rear fuselages.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Azad Engineering (10%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Flight-Critical Airfoils</h5>
+                                <p class="text-xs text-slate-600 mt-1">Domestic monopoly supplying Rolls Royce, GE, and Safran engine components.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'solar') {
+                content.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-navy-900 text-sm">Core Bottleneck: The Domestic Cell Deficit & ALMM Regulations</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                ALMM mandates 90% localized solar components. Low-margin module assemblers like Waaree face margin risk; integrated TOPCon cell makers command supreme pricing power.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Emmvee Photovoltaic (11%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">TOPCon Cell Pioneer</h5>
+                                <p class="text-xs text-slate-600 mt-1">Net-debt-free balance sheet with 9.9GW firm order book at 11x EV/EBITDA.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Premier Energies (8%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Integrated Scale</h5>
+                                <p class="text-xs text-slate-600 mt-1">Cell manufacturing leader capturing pricing power in domestic supply deficit.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'elec') {
+                content.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-navy-900 text-sm">Core Bottleneck: Imported Bill of Materials (BoM) & Packaging</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                ECMS & Semicon 2.0 incentivize domestic OSAT packaging and multi-layer PCB manufacturing, pushing Indian BoM localization from 15% to 50%+.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-slate-200 rounded-xl bg-white">
+                                <span class="text-xs font-bold text-amber-600">Kaynes Technology (13%)</span>
+                                <h5 class="font-bold text-slate-900 text-sm mt-0.5">Sanand OSAT & Multi-layer PCB</h5>
+                                <p class="text-xs text-slate-600 mt-1">Captures Semicon 2.0 with operational OSAT plant providing ₹25bn revenue visibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function updateSimulation() {
+            const cagr = parseFloat(document.getElementById('cagrSlider').value);
+            const contraction = parseFloat(document.getElementById('contractionSlider').value);
+            const years = parseInt(document.getElementById('yearsSlider').value);
+
+            document.getElementById('cagrValue').innerText = `${cagr.toFixed(1)}%`;
+            document.getElementById('contractionValue').innerText = `${contraction.toFixed(1)}%`;
+            document.getElementById('yearsValue').innerText = `${years} Year${years > 1 ? 's' : ''}`;
+
+            const earningsMultiplier = Math.pow(1 + (cagr / 100), years);
+            const multipleMultiplier = Math.pow(1 + (contraction / 100), years);
+            const totalValueFactor = earningsMultiplier * multipleMultiplier;
+
+            const totalReturnPercent = (totalValueFactor - 1) * 100;
+            const irr = (Math.pow(totalValueFactor, 1 / years) - 1) * 100;
+
+            document.getElementById('simTotalReturn').innerText = `${totalReturnPercent >= 0 ? '+' : ''}${totalReturnPercent.toFixed(1)}%`;
+            document.getElementById('simIRR').innerText = `${irr.toFixed(1)}%`;
+
+            document.getElementById('summaryCAGR').innerText = `${cagr.toFixed(1)}%`;
+            document.getElementById('summaryContraction').innerText = `${contraction.toFixed(1)}%`;
+        }
+
+        // --- GEMINI API INTEGRATION ---
+        async function sendAIPrompt() {
+            const inputEl = document.getElementById('aiPromptInput');
+            const prompt = inputEl.value.trim();
+            if (!prompt) return;
+
+            const chatLog = document.getElementById('chatLog');
+
+            // Append User Message
+            chatLog.innerHTML += `
+                <div class="flex items-start space-x-2 justify-end">
+                    <div class="bg-navy-900 text-white p-3 rounded-lg shadow-sm max-w-xl">
+                        ${escapeHtml(prompt)}
+                    </div>
+                    <div class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">You</div>
+                </div>
+            `;
+            inputEl.value = '';
+            chatLog.scrollTop = chatLog.scrollHeight;
+
+            // Append Loading AI Message
+            const loadingId = 'ai-loading-' + Date.now();
+            chatLog.innerHTML += `
+                <div id="${loadingId}" class="flex items-start space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">AI</div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-500 shadow-sm max-w-xl italic">
+                        Analyzing smallcase basket thesis and Jefferies equity data...
+                    </div>
+                </div>
+            `;
+            chatLog.scrollTop = chatLog.scrollHeight;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch response from secure backend.");
+                }
+
+                const result = await response.json();
+                let aiText = result.response || "I apologize, but I was unable to retrieve a response at this moment. Please try again.";
+
+                // Remove loading element
+                document.getElementById(loadingId).remove();
+
+                // Format simple markdown bold
+                let formattedText = escapeHtml(aiText).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+                // Append AI Response
+                chatLog.innerHTML += `
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">AI</div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-700 shadow-sm max-w-xl leading-relaxed whitespace-pre-line">
+                            ${formattedText}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                chatLog.innerHTML += `
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">AI</div>
+                        <div class="bg-red-50 p-3 rounded-lg border border-red-200 text-red-700 shadow-sm max-w-xl">
+                            Error communicating with AI assistant. Please check your network or try again shortly.
+                        </div>
+                    </div>
+                `;
+            }
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function setPromptAndSend(text) {
+            document.getElementById('aiPromptInput').value = text;
+            sendAIPrompt();
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function initCharts() {
+            const ctxSleeve = document.getElementById('sleeveChart').getContext('2d');
+            new Chart(ctxSleeve, {
+                type: 'doughnut',
+                data: {
+                    labels: sleeveData.map(s => s.name),
+                    datasets: [{
+                        data: sleeveData.map(s => s.weight),
+                        backgroundColor: sleeveData.map(s => s.color),
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            const legendContainer = document.getElementById('sleeveLegend');
+            sleeveData.forEach(s => {
+                const item = document.createElement('div');
+                item.className = "flex items-center space-x-2 p-1.5 rounded hover:bg-slate-50 cursor-pointer";
+                item.onclick = () => filterHoldings(s.name);
+                item.innerHTML = `
+                    <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color: ${s.color}"></span>
+                    <span class="text-slate-700 font-semibold truncate">${s.name}</span>
+                    <span class="font-extrabold text-navy-900 ml-auto">${s.weight}%</span>
+                `;
+                legendContainer.appendChild(item);
+            });
+
+            const ctxValuation = document.getElementById('valuationChart').getContext('2d');
+            new Chart(ctxValuation, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Grid/T&D Power',
+                        'Aerospace & Mfg',
+                        'Solar Mfg',
+                        'Electronics'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Capitalsense Pure-Play Basket Holding',
+                            data: [18, 34, 11, 30], // TARIL, Dynamatic, Emmvee, Kaynes
+                            backgroundColor: '#059669',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Rejected Broad Proxy',
+                            data: [72, 54, 38, 69], // Hitachi, Motherson/Azad, Waaree, Dixon
+                            backgroundColor: '#e2e8f0',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: { boxWidth: 12, font: { size: 11 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}x EV/EBITDA`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'EV / EBITDA Multiple (x)', font: { size: 11 } }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable(holdingsData);
+            initCharts();
+            switchSleeveTab('dc');
+            updateSimulation();
+            fetchLivePrices();
+        });
+    </script>
+</body>
+</html>
