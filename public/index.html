@@ -6,9 +6,11 @@
     <title>Capitalsense Advisors | India Emergent Industries Basket</title>
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Marked.js CDN for Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -1049,15 +1051,17 @@
                 // Remove loading element
                 document.getElementById(loadingId).remove();
 
-                // Format simple markdown bold
-                let formattedText = escapeHtml(aiText).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                // Format markdown using marked.js
+                let formattedText = marked.parse(aiText);
 
                 // Append AI Response
                 chatLog.innerHTML += `
                     <div class="flex items-start space-x-2">
                         <div class="w-6 h-6 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">AI</div>
-                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-700 shadow-sm max-w-xl leading-relaxed whitespace-pre-line">
-                            ${formattedText}
+                        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm max-w-xl">
+                            <div class="prose prose-sm prose-slate max-w-none">
+                                ${formattedText}
+                            </div>
                         </div>
                     </div>
                 `;
