@@ -94,6 +94,21 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
+// 3. Benchmark Data Endpoint
+app.get('/api/benchmark', async (req, res) => {
+    try {
+        const symbols = ['^CRSLDX', 'TARIL.NS', 'ANANTRAJ.NS', 'CUMMINSIND.NS', 'BHARTIARTL.NS', 'DYNAMATECH.NS', 'AZAD.NS', 'BELRISE.NS', 'EMMVEE.NS', 'PREMIERENE.NS', 'KAYNES.NS'].join(',');
+        const proxyUrl = `https://query1.finance.yahoo.com/v7/finance/spark?symbols=${symbols}&range=3y&interval=1mo`;
+        const response = await axios.get(proxyUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0' }
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching benchmark data:', error.message);
+        res.status(500).json({ error: 'Failed to fetch benchmark data' });
+    }
+});
+
 // Catch-all route to serve the HTML app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));

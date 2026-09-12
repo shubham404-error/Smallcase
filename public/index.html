@@ -347,6 +347,29 @@
                 </div>
             </div>
         </div>
+        <!-- SECTION 3.5: HISTORICAL BENCHMARK -->
+        <section id="benchmark-section" class="space-y-6">
+            <div class="border-l-4 border-amber-600 pl-4">
+                <h2 class="text-xl md:text-2xl font-bold text-navy-900">Historical Performance vs NIFTY 500</h2>
+                <p class="text-slate-600 text-sm mt-1">
+                    3-Year backtested performance of the Capitalsense pure-play basket against the NIFTY 500 benchmark.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">3-Year Normalized Growth (Base 100)</h3>
+                        <p class="text-xs text-slate-500">Live data fetched securely via Yahoo Finance</p>
+                    </div>
+                    <div id="benchmarkLoading" class="text-xs text-amber-600 font-bold animate-pulse">Loading data...</div>
+                </div>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="historicalChart"></canvas>
+                </div>
+            </div>
+        </section>
+
 
         <!-- SECTION 4: SLEEVE BOTTLENECK & STRATEGY DEEP-DIVES -->
         <section id="sleeves" class="space-y-6">
@@ -1182,12 +1205,145 @@
             });
         }
 
+        async function fetchAndRenderBenchmark() {
+            try {
+                const res = await fetch('/api/benchmark');
+                if (!res.ok) throw new Error('Network error');
+                const data = await res.json();
+                
+                const results = data.spark?.result;
+                if (!results) throw new Error('No data');
+
+                let niftyData = results.find(r => r.symbol === '^CRSLDX');
+                if (!niftyData) throw new Error('Nifty data missing');
+
+                // Nifty 500 processing
+                const timestamps = niftyData.response[0].timestamp;
+                const niftyPrices = niftyData.response[0].indicators.quote[0].close;
+                
+                // Align to first valid Nifty price
+                let startIdx = 0;
+                while (startIdx < niftyPrices.length && niftyPrices[startIdx] === null) startIdx++;
+                
+                const niftyBase = niftyPrices[startIdx];
+                const niftyNormalized = niftyPrices.map(p => p ? (p / niftyBase) * 100 : null);
+                
+                // Map labels
+                const labels = timestamps.map(t => {
+                    const d = new Date(t * 1000);
+                    return d.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+                });
+
+                // Basket processing
+                let basketNormalized = new Array(timestamps.length).fill(0);
+                
+                holdingsData.forEach(holding => {
+                    const stockData = results.find(r => r.symbol === holding.ticker);
+                    const weight = holding.weight / 100;
+                    
+                    if (stockData && stockData.response[0].indicators.quote[0].close) {
+                        const prices = stockData.response[0].indicators.quote[0].close;
+                        // Find first valid price for this stock
+                        let firstValidIdx = 0;
+                        while (firstValidIdx < prices.length && prices[firstValidIdx] === null) firstValidIdx++;
+                        
+                        const basePrice = prices[firstValidIdx];
+                        
+                        for (let i = 0; i < timestamps.length; i++) {
+                            if (prices[i] !== null && prices[i] !== undefined) {
+                                basketNormalized[i] += weight * ((prices[i] / basePrice) * 100);
+                            } else {
+                                // If stock didn't exist yet, assume it held cash (100 base)
+                                basketNormalized[i] += weight * 100;
+                            }
+                        }
+                    } else {
+                        // Fallback if data missing entirely
+                        for (let i = 0; i < timestamps.length; i++) {
+                            basketNormalized[i] += weight * 100;
+                        }
+                    }
+                });
+
+                document.getElementById('benchmarkLoading').style.display = 'none';
+
+                const ctx = document.getElementById('historicalChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Capitalsense Basket (Simulated)',
+                                data: basketNormalized,
+                                borderColor: '#059669',
+                                backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                pointHoverRadius: 5,
+                                fill: true,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'NIFTY 500 Benchmark',
+                                data: niftyNormalized,
+                                borderColor: '#94a3b8',
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                pointRadius: 0,
+                                pointHoverRadius: 5,
+                                fill: false,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { usePointStyle: true, boxWidth: 8, font: { weight: 'bold' } }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.parsed.y.toFixed(1)}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: { display: true, text: 'Normalized Value (Base 100)' },
+                                grid: { color: '#f1f5f9' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { maxTicksLimit: 12 }
+                            }
+                        }
+                    }
+                });
+            } catch (err) {
+                console.error(err);
+                document.getElementById('benchmarkLoading').innerText = 'Failed to load historical data.';
+                document.getElementById('benchmarkLoading').className = 'text-xs text-red-500 font-bold';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             renderTable(holdingsData);
             initCharts();
             switchSleeveTab('dc');
             updateSimulation();
             fetchLivePrices();
+            fetchAndRenderBenchmark();
         });
     </script>
 </body>
