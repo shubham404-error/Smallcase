@@ -63,7 +63,28 @@ app.post('/api/chat', async (req, res) => {
             systemInstruction: "Act as a world-class portfolio manager and smallcase investment analyst for Capitalsense Advisors India Emergent Industries Basket. Provide rigorous, precise, and professional explanations of our pure-play basket thesis, valuation metrics, exclusions (Hitachi, Motherson, Bharat Forge, Waaree), and macro sleeves (Data Centers, Aerospace, Solar, Electronics). Keep responses concise and focused on smallcase investors."
         });
 
-        const result = await model.generateContent(prompt);
+        let result;
+        let retries = 0;
+        const maxRetries = 3;
+        let delay = 1000; // 1 second initial delay
+
+        while (retries < maxRetries) {
+            try {
+                result = await model.generateContent(prompt);
+                break; // Success, break out of retry loop
+            } catch (err) {
+                // If it's a 503 error, wait and retry
+                if (err.message.includes('503') && retries < maxRetries - 1) {
+                    console.warn(`503 Service Unavailable. Retrying in ${delay}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    retries++;
+                    delay *= 2; // Exponential backoff (1s, 2s)
+                } else {
+                    throw err; // Re-throw if it's a different error or max retries reached
+                }
+            }
+        }
+
         const responseText = result.response.text();
         
         res.json({ response: responseText });
