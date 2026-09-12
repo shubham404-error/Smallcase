@@ -57,9 +57,9 @@ app.post('/api/chat', async (req, res) => {
     }
 
     try {
-        // Use standard gemini-1.5-flash for speed and lower cost
+        // Use gemini-3.5-flash model
         const model = genAI.getGenerativeModel({ 
-            model: 'gemini-1.5-flash',
+            model: 'gemini-3.5-flash',
             systemInstruction: "Act as a world-class portfolio manager and smallcase investment analyst for Capitalsense Advisors India Emergent Industries Basket. Provide rigorous, precise, and professional explanations of our pure-play basket thesis, valuation metrics, exclusions (Hitachi, Motherson, Bharat Forge, Waaree), and macro sleeves (Data Centers, Aerospace, Solar, Electronics). Keep responses concise and focused on smallcase investors."
         });
 
